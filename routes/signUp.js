@@ -5,7 +5,7 @@ const checkNotLogin = require('../middlewares/checkLogin.js').checkNotLogin
 
 //GET /signUp 注册页
 router.get('/', checkNotLogin, function(req, res, next) {
-    res.send('注册页')
+    res.render('signUp')
 })
 
 //POST /signUp 注册页
