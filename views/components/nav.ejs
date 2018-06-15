@@ -1,10 +1,18 @@
-<div class="nav">
-  <div class="ui grid">
-    <div class="four wide column"></div>
-
-    <div class="eight wide column">
-      <a href="/posts"><h1><%= blog.title %></h1></a>
-      <p><%= blog.description %></p>
-    </div>
+<nav class="white" role="navigation">
+  <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo"><%= blog.title %></a>
+      <ul class="right hide-on-med-and-down">
+          <li>
+              <a href="#"><%= blog.description %></a>
+          </li>
+      </ul>
+      <ul id="nav-mobile" class="sidenav">
+          <li>
+              <a href="#"><%= blog.description %></a>
+          </li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+          <i class="material-icons">menu</i>
+      </a>
   </div>
-</div>
+</nav>
