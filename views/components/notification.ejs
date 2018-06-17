@@ -1,18 +1,21 @@
-<div class="ui grid">
-  <div class="four wide column"></div>
-  <div class="eight wide column">
+    <!-- 提示卡片 -->
+    <div class="container">
+        <div class="container">
+            <div id="card_alert" class="card green lighten-4 pulse">
+                <% if (success) { %>
+                    <div class="card-content green ligten-5 z-depth-1">
+                        <p>
+                            <i class="material-icons">check</i> 
+                            <%= success %>
+                        </p>
+                    </div>
+                <% } %>
 
-  <% if (success) { %>
-    <div class="ui success message">
-      <p><%= success %></p>
+                <% if (error) { %>
+                <div class="card-content red z-depth-1">
+                <p><%= error %></p>
+                </div>
+                <% } %>
+            </div>
+        </div>
     </div>
-  <% } %>
-
-  <% if (error) { %>
-    <div class="ui error message">
-      <p><%= error %></p>
-    </div>
-  <% } %>
-
-  </div>
-</div>

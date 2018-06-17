@@ -14,8 +14,8 @@ body {
     position: fixed;
     float: left;
     margin-right: 0px;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
     /* margin-right: 30px;
     padding-top: 40px;
     color: green; */
@@ -23,4 +23,11 @@ body {
 
 .row {
     margin-top: 30px;
+}
+
+
+/* notification */
+
+#card_alert {
+    margin-top: 36px;
 }
