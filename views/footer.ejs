@@ -37,7 +37,7 @@
 <script type="text/javascript">
     $(document).ready(function() { 
         //sidenav 弹出的方法
-        $('.sidenav').sidenav({ edge:'right', inDuration:300 }); 
+        $('.sidenav').sidenav({ edge:'left', inDuration:300 }); 
 
         //悬浮按钮的方法
         $('.fixed-action-btn').floatingActionButton(); 
@@ -56,6 +56,9 @@
 
         // 设置提示的notification 逐渐消失
         $('#card_alert').fadeOut(3000);  
+
+        //设置 post-content卡片 按钮的dropdown效果
+        $('.dropdown-trigger').dropdown();
     });
 </script>
 

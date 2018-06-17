@@ -11,11 +11,11 @@ body {
 /* nav-setting */
 
 #sidenav_button {
-    position: fixed;
+    /*     position: fixed;
     float: left;
     margin-right: 0px;
     margin-top: 10px;
-    margin-left: 10px;
+    margin-left: 15px; */
     /* margin-right: 30px;
     padding-top: 40px;
     color: green; */
@@ -28,6 +28,26 @@ body {
 
 /* notification */
 
+
+/* 给提示信息添加圆角样式 */
+
 #card_alert {
     margin-top: 36px;
+    border-style: hidden;
+    border-radius: 2em;
+}
+
+.collection {
+    border-style: hidden;
+    border-radius: 2em;
+}
+
+#post-content {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dropdown-trigger {
+    float: right;
 }
