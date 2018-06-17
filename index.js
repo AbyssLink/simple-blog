@@ -42,12 +42,15 @@ app.use(require('express-formidable')({
 }))
 
 // 设置模板全局常量
+// 将 blog 博客常量信息挂载到 app.locals 上
 app.locals.blog = {
     title: pkg.name,
     description: pkg.description
 }
 
 // 添加模板必需的三个变量
+// user, success, error 等变量信息挂载到 res.locals 上
+// 这样我们在使用 res.render() 方法时就不用传入这些变量了
 app.use(function(req, res, next) {
     res.locals.user = req.session.user
     res.locals.success = req.flash('success').toString()
