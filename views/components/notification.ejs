@@ -1,21 +1,30 @@
-    <!-- 提示卡片 -->
+    <!-- 提示栏 -->
     <div class="container">
         <div class="container">
-            <div id="card_alert" class="card green lighten-4 pulse">
-                <% if (success) { %>
-                    <div class="card-content green ligten-5 z-depth-1">
-                        <p>
-                            <i class="material-icons">check</i> 
-                            <%= success %>
-                        </p>
-                    </div>
-                <% } %>
+            <div class="container">
+                <div id="card_alert" class="card yellow pulse">
+                    <% if (success) { %>
+                        <ul class="collection z-depth-3">
+                            <li class="collection-item green-text">
+                                <a href="#!" class="secondary-content">
+                                    <i class="material-icons green-text">check</i>
+                                </a>
+                                <%= success %>
+                            </li>
+                        </ul>
+                    <% } %>
 
-                <% if (error) { %>
-                <div class="card-content red z-depth-1">
-                <p><%= error %></p>
+                    <% if (error) { %>
+                        <ul class="collection z-depth-3">
+                            <li class="collection-item red-text">
+                                <a href="#!" class="secondary-content">
+                                    <i class="material-icons red-text">close</i>
+                                </a>
+                                <%= error %>
+                            </li>
+                        </ul>
+                    <% } %>
                 </div>
-                <% } %>
             </div>
         </div>
     </div>

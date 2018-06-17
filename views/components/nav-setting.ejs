@@ -4,11 +4,11 @@
             <li>
                 <div class="user-view">
                     <div class="background">
-                        <img src="img/bg.jpg">
+                        <img src="/img/bg.jpg">
                     </div>
                     <!--显示用户头像-->
                     <a href="#user">
-                        <img class="circle" src="img/<%= user.avatar %>">
+                        <img class="circle" src="/img/<%= user.avatar %>">
                     </a>
                     <!--显示用户名称-->
                     <a href="#name">
@@ -67,12 +67,14 @@
     </ul>
     
     <!-- 侧边导航栏启动按钮 -->
-    <a href="#" id="sidenav_button" data-target="slide-out" class="btn-floating btn-large waves-effect waves-light yellow sidenav-trigger">
-        <i class="material-icons">menu</i>
-    </a>
+    <div class="fixed-action-btn">
+        <a href="#" id="sidenav_button" data-target="slide-out" class="btn-floating btn-large waves-effect waves-light green sidenav-trigger">
+            <i class="material-icons">person</i>
+        </a>
+    </div>
 
         <!-- 活动悬浮按钮 -->
-    <div class="fixed-action-btn">
+   <%#  <div class="fixed-action-btn">
         <a class="btn-floating btn-large red">
             <i class="large material-icons">mode_edit</i>
         </a>
@@ -99,3 +101,4 @@
             </li>
         </ul>
     </div>
+ %>
