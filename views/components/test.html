@@ -173,6 +173,87 @@
         </div>
     </div>
 
+    <!-- 留言页 -->
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="container">
+                        <div class="card-content yellow lighten-3">
+                            <span class="card-title center-align materialize-red-text">Write your comment...</span>
+                        </div>
+
+                        <!-- 表单域 -->
+                        <form class="col s12 m12 " method="POST" enctype="multipart/form-data">
+                            <!-- 输入留言内容 -->
+                            <textarea name="content" style="height: 200px; margin-bottom: 30px;"></textarea>
+
+                            <div style="float: left;">
+                                <a style="vertical-align: middle">2018-06-16</a>
+                                <a style="vertical-align: middle; margin-left: 10px;">by Illya</a>
+                                <a style="vertical-align: middle">, a night girl</a>
+                            </div>
+                            <!-- 提交表单的按钮，input type 为 submit -->
+                            <button href="#" class="waves-effect waves-light blue btn right" type="submit" name="action" id="submit_btn">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card light-blue darken-1">
+                    <div class="container">
+                        <div class="card-content white-text">
+                            <span class="card-title">Comments</span>
+                            <p>Test</p>
+                        </div>
+                        <div class="card-action" style="height: 70px;">
+                            <a href="#" style="color: red">This is a link</a>
+                            <a href="#">This is a link</a>
+                            <a href="/comments/<%= comment._id %>/remove" class="btn-floating materialize-red" style="float: right;">
+                                <i class="material-icons right">clear</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card content">
+                        <div class="container">
+                            <input name="postId" value="<%= post._id %>" hidden/>
+                            <!-- <textarea name="content" style="height: 200px; margin-top: 40px; margin-bottom: 30px;">
+                            </textarea> -->
+                            <div class="text" style="margin-top: 40px; margin-bottom: 30px;">
+                                <%- comment.content %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action" style="height: 70px;">
+                        <!-- 显示留言的信息 -->
+                        <a style="vertical-align: middle">
+                        </a>
+                        <a style="vertical-align: middle; margin-left: 10px;">by</a>
+                        <a style="vertical-align: middle">,</a>
+                        <!-- 用户可以删除自己的留言 -->
+                        <a href="/comments/<%= comment._id %>/remove" class="btn" style="float: right; vertical-align: middle; margin-bottom: 20px;">remove</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 水平卡片 -->
     <div class="container">
         <div class="row">
@@ -180,10 +261,6 @@
                 <div class="card horizontal">
                     <img class="circle" src="images/user.jpg" style="margin-top: 30px; margin-left: 30px; margin-right: 10px;" width="100px" height="100px">
                     <div class="card-stacked">
-                        <!-- <div class="card-action">
-                            <a href="#">browse</a>
-                            <a href="#">comment</a>
-                        </div> -->
                         <div class="card-content">
                             <a href="#" class="card-title materialize-red-text">Card Title</a>
                             <p>I am a very simple card. I am good at containing small bits of information.</p>

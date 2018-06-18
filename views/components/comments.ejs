@@ -1,0 +1,56 @@
+    <!-- 留言页 -->
+    <div class="container">
+      <div class="col s12 m12">
+          <% comments.forEach(function (comment) { %>
+            <div class="card horizontal blue-grey darken-1" >
+                <img class="circle" src="/img/<%= comment.author.avatar %>" style="margin-top: 30px; margin-left: 30px; margin-right: 10px;" width="100px" height="100px">
+                <div class="card-stacked">
+                    <input name="postId" value="<%= post._id %>" hidden/>
+                    <div class="card-content white-text">
+                        <span class="card-title yellow-text">Comments</span>
+
+                        <!-- 显示留言的信息 -->
+                        <div type="text" style="margin-bottom: 15px;"><%- comment.content %></div>
+                      </div>
+
+                  <div class="card-action " style="height: 90px;">
+                      <span style="color: white">by <%= comment.author.name %></span>
+                      <span style="color: white">{ <%= comment.author.bio %> }</span>
+                      <span style="color: white"> at <%= comment.created_at %></span>
+
+                      <!-- 用户可以删除自己的留言 -->
+                      <% if (user && comment.author._id && user._id.toString() === comment.author._id.toString()) { %>
+                          <a href="/comments/<%= comment._id %>/remove" class="btn-floating btn-large materialize-red" style="float:right; margin-right:50px;" >
+                              <i class="material-icons right">clear</i></a>
+                      <% } %>
+                </div>
+              </div>
+                
+            </div>
+          <% }) %>
+      </div>
+              <!-- 登录后显示留言表单 -->
+              <% if (user) { %>
+                  <div class="card amber lighten-3" style="margin-top:30px">
+                      <div class="card-content ">
+                          <span class="card-title center-align materialize-red-text">Write your comment...</span>
+                          <div class="row">
+
+                              <!-- 表单域 -->
+                              <form class="col s12 m12 " method="POST" action="/comments">
+                                      <!-- 输入留言内容 -->
+                                      <input name="postId" value="<%= post._id %>" hidden/>
+                                        <textarea name="content" style="height: 200px; margin-bottom: 30px;"></textarea>
+                                        <!-- 提交表单的按钮，input type 为 submit -->
+                                        <button href="#" class="waves-effect waves-light blue btn right" type="submit" name="action" id="submit_btn">Submit
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
