@@ -3,6 +3,8 @@ const router = express.Router()
 
 // 获取发表文章的模型
 const PostModel = require('../models/posts')
+    // 获取获得评论的模型
+const CommentModel = require('../models/comments')
 const checkLogin = require('../middlewares/checkLogin').checkLogin
 
 // GET /posts 所有用户或者特定用户的文章页
@@ -66,17 +68,20 @@ router.get('/:postId', function(req, res, next) {
 
     Promise.all([
             PostModel.getPostById(postId), // 获取文章信息
+            CommentModel.getComments(postId), // 获取该文章所有留言
             PostModel.incPv(postId) // pv 加 1
         ])
         .then(function(result) {
             const post = result[0]
+            const comments = result[1]
 
             if (!post) {
                 throw new Error('该文章不存在')
             }
 
             res.render('post', {
-                post: post
+                post: post,
+                comments: comments
             })
         })
         .catch(next)
