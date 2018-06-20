@@ -158,14 +158,14 @@ router.get('/:postId/remove', checkLogin, function(req, res, next) {
     PostModel.getRawPostById(postId)
         .then(function(post) {
             if (!post) {
-                throw new Error('文章不存在')
+                throw new Error('Eassy does not exist ')
             }
             if (post.author._id.toString() !== author.toString()) {
-                throw new Error('没有权限')
+                throw new Error('No permissions!')
             }
             PostModel.delPostById(postId)
                 .then(function() {
-                    req.flash('success', '删除文章成功')
+                    req.flash('success', 'delete eassy success!')
                         // 删除成功后跳转到主页
                     res.redirect('/posts')
                 })
