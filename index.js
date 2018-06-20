@@ -6,6 +6,9 @@ const flash = require('connect-flash')
 const config = require('config-lite')(__dirname)
 const routes = require('./routes')
 const pkg = require('./package')
+const winston = require('winston') //实现日志功能
+const expressWinston = require('express-winston') //实现日志功能
+
 
 const app = express()
 
@@ -58,9 +61,56 @@ app.use(function(req, res, next) {
     next()
 })
 
+// 正常请求的日志
+app.use(expressWinston.logger({
+    transports: [
+        new winston.transports.Console({
+            json: true,
+            colorize: true
+        }),
+        new winston.transports.File({
+            filename: 'logs/success.log'
+        })
+    ]
+}))
+
 //设置路由，将按照 ./routes 目录下的 index.js 进行路由
 routes(app)
 
-app.listen(config.port, function() {
-    console.log(`${pkg.name} listening on port ${config.port}`)
+// 错误请求的日志
+app.use(expressWinston.errorLogger({
+    transports: [
+        new winston.transports.Console({
+            json: true,
+            colorize: true
+        }),
+        new winston.transports.File({
+            filename: 'logs/error.log'
+        })
+    ]
+}))
+
+/* 这里我们实现了将错误信息用页面通知展示的功能，
+刷新页面将会跳转到主页并显示『 权限不足』 的红色通知。 */
+app.use(function(err, req, res, next) {
+    console.error(err)
+    req.flash('error', err.message)
+    res.redirect('/posts')
 })
+
+/* app.listen(config.port, function() {
+    console.log(`${pkg.name} listening on port ${config.port}`)
+}) */
+
+
+// 这样做可以实现： 直接启动 index.js 则会监听端口启动程序， 
+// 如果 index.js 被 require 了， 则导出 app， 通常用于测试。
+if (module.parent) {
+    // 被 require，则导出 app
+    module.exports = app
+} else {
+    // 监听端口，启动程序
+    app.listen(config.port, function() {
+        console.log(`${pkg.name} listening on port ${config.port}`)
+    })
+}
