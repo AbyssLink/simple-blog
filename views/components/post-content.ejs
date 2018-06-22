@@ -3,44 +3,56 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m12">
-                <div class="card horizontal avatar">
+                <div class="card">
                     <!-- 注意路径中要包含 /, 因为预定的静态资源目录为：/public -->
-                    <img class="circle" src="/img/<%= post.author.avatar %>" style="margin-top: 30px; margin-left: 30px; margin-right: 10px;" width="100px" height="100px">
-                    <div class="card-stacked">
+                    <!--<img class="circle" src="/img/<%= post.author.avatar %>" style="margin-top: 30px; margin-left: 30px; margin-right: 10px;" width="100px" height="100px">-->
                         <div class="card-content">
                             <!-- 点击文章名后跳转到文章页面 -->
                             <a href="/posts/<%= post._id %>" class="card-title materialize-red-text" style="margin-left:10px;"><%= post.title %></a>
-                            <div class="col s12 m10">
+
                                 <!-- 文章内容 -->
                                 <!-- 待修改 -->
-                                <p><%- post.content %></p>
+                                <pre><%- post.content %></pre>
+
+                            <div class="col m2" style="float:right;">
+                                <!-- 登录后才显示编辑按钮 -->
+                                <% if (user && post.author._id && user._id.toString() === post.author._id.toString()) { %>
+                                <!-- Dropdown Trigger -->
+                                <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>
+                                    <i class="material-icons right">mode_edit</i>Edit</a>
+
+                                <!-- Dropdown Structure -->
+                                <ul id='dropdown1' class='dropdown-content'>
+                                    <li>
+                                        <a href="/posts/<%= post._id %>/edit">edit</a>
+                                    </li>
+                                    <li>
+                                        <a href="/posts/<%= post._id %>/remove">remove</a>
+                                    </li>
+                                </ul>
+                                <% } %>
                             </div>
                         </div>
-                        <div id="btn_dropdown" class="card-action">
-                            <a style="vertical-align: middle"><%= post.created_at %></a>
-                            <a style="vertical-align: middle">browse(<%= post.pv || 0 %>)</a>
-                            <a style="vertical-align: middle">comment(<%= post.commentsCount || 0 %>)</a>
+                        <!--显示文章信息-->
+                        <div class="card-action" style="margin-top: 20px;">
+                            <div class="chip black-text">
+                                <img src="/img/<%= post.author.avatar %>" alt="Contact Person" class="circle" >
+                                <%= post.author.name%>
+                            </div>
+                            <div class="chip black-text">
+                                <%= post.created_at %>
+                                <i class="close material-icons green-text">check</i>
+                            </div>
+                            <div class="chip black-text">
+                                browse( <%= post.pv || 0 %> )
+                                <i class="close material-icons green-text">check</i>
+                            </div>
+                            <div class="chip black-text">
+                                comment( <%= post.commentsCount || 0 %> )
+                                <i class="close material-icons green-text">check</i>
+                            </div>
 
-                            <!-- 登录后才显示编辑按钮 -->
-                            <% if (user && post.author._id && user._id.toString() === post.author._id.toString()) { %>
-                            <!-- Dropdown Trigger -->
-                            <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>
-                                <i class="material-icons right">mode_edit</i>Edit</a>
 
-                            <!-- Dropdown Structure -->
-                            <ul id='dropdown1' class='dropdown-content'>
-                                <li>
-                                    <a href="/posts/<%= post._id %>/edit">edit</a>
-                                </li>
-                                <li>
-                                    <a href="/posts/<%= post._id %>/remove">remove</a>
-                                </li>
-                                <li class="divider" tabindex="-1"></li>
-                                <li>
-                                    <a href="#!">three</a>
-                                </li>
-                            </ul>
-                            <% } %>
                         </div>
                     </div>
                 </div>

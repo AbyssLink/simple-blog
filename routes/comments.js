@@ -13,7 +13,7 @@ router.post('/', checkLogin, function(req, res, next) {
     // 校验参数
     try {
         if (!content.length) {
-            throw new Error('请填写留言内容')
+            throw new Error('Please write document content!')
         }
     } catch (e) {
         req.flash('error', e.message)
@@ -28,7 +28,7 @@ router.post('/', checkLogin, function(req, res, next) {
 
     CommentModel.create(comment)
         .then(function() {
-            req.flash('success', '留言成功')
+            req.flash('success', 'comment successfully!')
                 // 留言成功后跳转到上一页
             res.redirect('back')
         })
@@ -43,14 +43,14 @@ router.get('/:commentId/remove', checkLogin, function(req, res, next) {
     CommentModel.getCommentById(commentId)
         .then(function(comment) {
             if (!comment) {
-                throw new Error('留言不存在')
+                throw new Error('No comment!')
             }
             if (comment.author.toString() !== author.toString()) {
-                throw new Error('没有权限删除留言')
+                throw new Error('No permission to remove comment!')
             }
             CommentModel.delCommentById(commentId)
                 .then(function() {
-                    req.flash('success', '删除留言成功')
+                    req.flash('success', 'remove Comment successfully!')
                         // 删除成功后跳转到上一页
                     res.redirect('back')
                 })

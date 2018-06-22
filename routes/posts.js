@@ -30,10 +30,10 @@ router.post('/create', checkLogin, function(req, res, next) {
     // 校验参数
     try {
         if (!title.length) {
-            throw new Error('请填写标题')
+            throw new Error('Please Enter Title!')
         }
         if (!content.length) {
-            throw new Error('请填写内容')
+            throw new Error('Please Enter Content!')
         }
     } catch (e) {
         req.flash('error', e.message)
@@ -50,7 +50,7 @@ router.post('/create', checkLogin, function(req, res, next) {
         .then(function(result) {
             // 此 post 是插入 mongodb 后的值，包含 _id
             post = result.ops[0]
-            req.flash('success', '发表成功')
+            req.flash('success', 'Post successfully!')
                 // 发表成功后跳转到该文章页
             res.redirect(`/posts/${post._id}`)
         })
@@ -76,7 +76,7 @@ router.get('/:postId', function(req, res, next) {
             const comments = result[1]
 
             if (!post) {
-                throw new Error('该文章不存在')
+                throw new Error('No Such Article!')
             }
 
             res.render('post', {
@@ -95,12 +95,12 @@ router.get('/:postId/edit', checkLogin, function(req, res, next) {
     PostModel.getRawPostById(postId)
         .then(function(post) {
             if (!post) {
-                throw new Error('该文章不存在')
+                throw new Error('No such article!')
             }
 
             // 非原作者无法修改文章
             if (author.toString() !== post.author._id.toString()) {
-                throw new Error('权限不足')
+                throw new Error('No permission!')
             }
             res.render('edit', {
                 post: post
@@ -119,10 +119,10 @@ router.post('/:postId/edit', checkLogin, function(req, res, next) {
     // 校验参数
     try {
         if (!title.length) {
-            throw new Error('请填写标题')
+            throw new Error('Please Enter Title!')
         }
         if (!content.length) {
-            throw new Error('请填写内容')
+            throw new Error('Please Enter content!')
         }
     } catch (e) {
         req.flash('error', e.message)
@@ -132,17 +132,17 @@ router.post('/:postId/edit', checkLogin, function(req, res, next) {
     PostModel.getRawPostById(postId)
         .then(function(post) {
             if (!post) {
-                throw new Error('文章不存在')
+                throw new Error('No such article!')
             }
             if (post.author._id.toString() !== author.toString()) {
-                throw new Error('没有权限')
+                throw new Error('No permission!')
             }
             PostModel.updatePostById(postId, {
                     title: title,
                     content: content
                 })
                 .then(function() {
-                    req.flash('success', '编辑文章成功')
+                    req.flash('success', 'Edit article successfully')
                         // 编辑成功后跳转到上一页
                     res.redirect(`/posts/${postId}`)
                 })
@@ -158,14 +158,14 @@ router.get('/:postId/remove', checkLogin, function(req, res, next) {
     PostModel.getRawPostById(postId)
         .then(function(post) {
             if (!post) {
-                throw new Error('文章不存在')
+                throw new Error('No such article!')
             }
             if (post.author._id.toString() !== author.toString()) {
-                throw new Error('没有权限')
+                throw new Error('No permission!')
             }
             PostModel.delPostById(postId)
                 .then(function() {
-                    req.flash('success', '删除文章成功')
+                    req.flash('success', 'remove article successfully!')
                         // 删除成功后跳转到主页
                     res.redirect('/posts')
                 })
