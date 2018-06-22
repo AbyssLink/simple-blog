@@ -102,7 +102,6 @@ app.use(function(err, req, res, next) {
     console.log(`${pkg.name} listening on port ${config.port}`)
 }) */
 
-
 // 这样做可以实现： 直接启动 index.js 则会监听端口启动程序， 
 // 如果 index.js 被 require 了， 则导出 app， 通常用于测试。
 if (module.parent) {

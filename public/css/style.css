@@ -21,6 +21,15 @@ body {
     color: green; */
 }
 
+
+#mode_edit{
+    position: fixed;
+    float: right;
+    margin-bottom: 100px;
+}
+
+
+
 .row {
     margin-top: 30px;
 }
@@ -51,3 +60,6 @@ body {
 .dropdown-trigger {
     float: right;
 }
+
+
+/**************markdown 样式*************/

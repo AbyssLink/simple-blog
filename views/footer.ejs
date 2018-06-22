@@ -1,27 +1,12 @@
     <!-- 页脚 -->
     <footer class="page-footer blue lighten-1">
+        <a name="bottom"></a>
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">SimpleBlog</h5>
                     <p class="grey-text text-lighten-4">This is a test blog for JavaScript class.</p>
                 </div>
-                <!--<div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li>
-                            <a class="grey-text text-lighten-3" href="#!">Link 1</a>
-                        </li>
-                        <li>
-                            <a class="grey-text text-lighten-3" href="#!">Link 2</a>
-                        </li>
-                        <li>
-                            <a class="grey-text text-lighten-3" href="#!">Link 3</a>
-                        </li>
-                        <li>
-                            <a class="grey-text text-lighten-3" href="#!">Link 4</a>
-                        </li>
-                    </ul>-->
                 </div>
             </div>
         </div>
@@ -33,33 +18,55 @@
         </div>
     </footer>
 
-</body>
-<script type="text/javascript">
-    $(document).ready(function() { 
-        //sidenav 弹出的方法
-        $('.sidenav').sidenav({ edge:'left', inDuration:300 }); 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //sidenav 弹出的方法
+            $('.sidenav').sidenav({ edge:'left', inDuration:300 });
 
-        //悬浮按钮的方法
-        $('.fixed-action-btn').floatingActionButton(); 
+            //悬浮按钮的方法
+            $('.fixed-action-btn').floatingActionButton();
 
-        //显示选择框
-        $('select').formSelect();
-        
-        // 提交表单后 Toast 显示提示信息
-        $('#submit_btn').click(function(){
-         M.toast({
-            html: 'success！',
-            displayLength: 3000,
-            classes: "rounded green"
+            //显示选择框
+            $('select').formSelect();
+
+            // 提交表单后 Toast 显示提示信息
+            $('#submit_btn').click(function(){
+                M.toast({
+                    html: 'Posting...',
+                    displayLength: 3000,
+                    classes: "rounded blue"
+                });
             });
+
+            // 设置提示的notification 逐渐消失
+            $('#card_alert').fadeOut(3000);
+
+            //设置 post-content卡片 按钮的dropdown效果
+            $('.dropdown-trigger').dropdown();
+            // 获取Markdown编辑区
+            var simplemde = new SimpleMDE({
+                element: $("#editor")[0],
+                indentWithTabs: false,
+                tabSize: 4,
+                status: false,
+                autosave: {
+                    enabled: false
+                },
+                spellChecker: false,
+                renderingConfig: {
+                    codeSyntaxHighlighting: true
+                }
+            });
+            var testPlain = simplemde.value(),
+                testMarkdown = simplemde.markdown(testPlain);
+
+            var speed = 20;//自定义滚动速度
+            //回到顶部
+
         });
 
-        // 设置提示的notification 逐渐消失
-        $('#card_alert').fadeOut(3000);  
-
-        //设置 post-content卡片 按钮的dropdown效果
-        $('.dropdown-trigger').dropdown();
-    });
-</script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    </body>
 
 </html>

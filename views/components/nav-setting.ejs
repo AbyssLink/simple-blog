@@ -32,10 +32,15 @@
                 <div class="divider"></div>
             </li>
             <li>
-                <a class="subheader">Subheader</a>
+                <a class="subheader">Tools</a>
             </li>
             <li>
-                <a class="waves-effect" href="#!">Third Link With Waves</a>
+                <a class="waves-effect">
+                    <i class="material-icons">keyboard_arrow_up</i>to top</a>
+            </li>
+            <li>
+                <a class="waves-effect">
+                    <i class="material-icons">keyboard_arrow_down</i>to bottom</a>
             </li>
         <% } else { %>
             <li>
@@ -57,10 +62,15 @@
                 <div class="divider"></div>
             </li>
             <li>
-                <a class="subheader">Subheader</a>
+                <a class="subheader">Tools</a>
             </li>
             <li>
-                <a class="waves-effect" href="#!">Third Link With Waves</a>
+                <a class="waves-effect" >
+                    <i class="material-icons">keyboard_arrow_up</i>to top</a>
+            </li>
+            <li>
+                <a class="waves-effect" >
+                    <i class="material-icons">keyboard_arrow_down</i>to bottom</a>
             </li>
         <% } %>
 
@@ -68,9 +78,20 @@
     
     <!-- 侧边导航栏启动按钮 -->
     <div class="fixed-action-btn">
-        <a href="#" id="sidenav_button" data-target="slide-out" class="btn-floating btn-large waves-effect waves-light green sidenav-trigger">
+        <a href="#" id="sidenav_button" data-target="slide-out" class="btn-floating btn-large waves-effect waves-light red sidenav-trigger">
             <i class="material-icons">person</i>
         </a>
+    </div>
+
+    <div class="fixed-action-btn" id="mode_edit">
+        <a class="btn-floating btn-large green">
+            <i class="large material-icons">mode_edit</i>
+        </a>
+        <ul>
+            <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+            <li><a class="btn-floating red" id="toTop"><i class="material-icons">keyboard_arrow_up</i></a></li>
+            <li><a class="btn-floating yellow darken-1" id="toBottom"><i class="material-icons">keyboard_arrow_down</i></a></li>
+        </ul>
     </div>
 
         <!-- 活动悬浮按钮 -->
