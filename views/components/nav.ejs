@@ -1,30 +1,32 @@
 <!-- 主导航栏 -->
-    <nav>
-        <div class="nav-wrapper blue lighten-1">
-            <a href="/posts" class="brand-logo center">
-                <!-- 显示博客的title(为pkg.name) -->
-                <i style="margin-left:10px;" class="material-icons">cloud</i><%= blog.title %></a>
-            <ul class="right hide-on-med-and-down">
-                <li>
-                    <a href="#">
-                        <i class="material-icons">search</i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="material-icons">view_module</i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="material-icons">refresh</i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="material-icons">more_vert</i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper blue lighten-1">
+                <a href="/posts" class="brand-logo center">
+                    <!-- 显示博客的title(为pkg.name) -->
+                    <i style="margin-left:10px;" class="material-icons">home</i><%= blog.title %></a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="javascript:void(0)" onclick="location.reload()">
+                            <i class="material-icons">refresh</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="toTop">
+                            <i class="material-icons">keyboard_arrow_up</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="toBottom">
+                            <i class="material-icons">keyboard_arrow_down</i>
+                        </a>
+                    </li>
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<i class="material-icons">more_vert</i>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+        </nav>
+    </div>

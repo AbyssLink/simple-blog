@@ -39,7 +39,7 @@
             });
 
             // 设置提示的notification 逐渐消失
-            $('#card_alert').fadeOut(4000);
+            $('#card_alert').delay(1500).fadeOut(3000);
 
             //设置 post-content卡片 按钮的dropdown效果
             $('.dropdown-trigger').dropdown();
@@ -67,8 +67,8 @@
             }
         });
         $ (function () {
-            $(".preloader-wrapper").fadeOut(2000);
-            $('.preloader-background').delay(300).fadeOut('slow');
+            $(".preloader-wrapper").fadeOut(1000);
+            $('.preloader-background').delay(1000).fadeOut('slow');
 
             var speed = 1000;
             $("#toTop").click( function () {

@@ -3,7 +3,7 @@
       <div class="col s12 m12">
           <% comments.forEach(function (comment) { %>
             <div class="card horizontal blue-grey darken-1" >
-                <img class="circle" src="/img/<%= comment.author.avatar %>" style="margin-top: 30px; margin-left: 30px; margin-right: 10px;" width="100px" height="100px">
+                <img class="circle" src="/img/<%= comment.author.avatar %>" style="margin-top: 30px; margin-left: 30px; margin-right: 10px;" width="90px" height="90px">
                 <div class="card-stacked">
                     <input name="postId" value="<%= post._id %>" hidden/>
                     <div class="card-content white-text">
@@ -20,7 +20,7 @@
 
                       <!-- 用户可以删除自己的留言 -->
                       <% if (user && comment.author._id && user._id.toString() === comment.author._id.toString()) { %>
-                          <a href="/comments/<%= comment._id %>/remove" class="btn-floating btn-large materialize-red" style="float:right; margin-right:50px;" >
+                          <a href="/comments/<%= comment._id %>/remove" class="btn-floating materialize-red" style="float:right; margin-right:50px;" >
                               <i class="material-icons right">clear</i></a>
                       <% } %>
                 </div>

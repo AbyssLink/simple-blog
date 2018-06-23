@@ -7,18 +7,26 @@
     padding-top: 0px;
 }
 
-.wrap {
-    min-height: 100%;
-    height: auto !important;
+/*nav*/
+/*颜色动态变化效果*/
+
+.page-footer{
+    background: radial-gradient(circle, #c48dff, #6bdd89, #2a5ae4);
+    background-size:1000% 300%;
+    animation:mymove 100s ease infinite;
+    -webkit-animation: mymove 100s ease infinite;
+    -moz-animation: mymove 100s ease infinite;
 }
-.main {
-    padding-bottom: 80px; //页脚高度
+@keyframes mymove
+{
+    0% {
+        background-position: 0% 0%; }
+    50% {
+        background-position: 50% 100%; }
+    100% {
+        background-position: 100% 0%; }
 }
 
-.footer {
-    height: 60px;  //页脚高度
-    margin-top: 60px;  //一个页脚高度的负外边距
-}
 /* nav-setting */
 
 #sidenav_button {
@@ -72,13 +80,18 @@
     float: right;
 }
 
-/*预加载器*/
+/**********预加载器*************/
 .preloader-background {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #eee;
-    /*background-color: rgba(236, 238, 231, 0.44);*/
+    background: radial-gradient(circle, #7a8286, #4cd1dd, #eee);
+    background-size:1000% 300%;
+    animation:mymove 20s ease infinite;
+    -webkit-animation: mymove 20s ease infinite;
+    -moz-animation: mymove 20s ease infinite;
+    /*background-color: rgba(108, 255, 70, 0.44);*/
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 
     position: fixed;
     z-index: 100;
@@ -86,6 +99,16 @@
     left: 0;
     right: 0;
     bottom: 0;
+
+}
+@keyframes mymove
+{
+    0% {
+        background-position: 0% 0%; }
+    50% {
+        background-position: 50% 100%; }
+    100% {
+        background-position: 100% 0%; }
 }
 
 
