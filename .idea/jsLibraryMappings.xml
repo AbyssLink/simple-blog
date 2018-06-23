@@ -2,7 +2,7 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{SimpleBlog/node_modules}" />
-    <file url="PROJECT" libraries="{@types/ejs, @types/express, @types/express-flash, @types/express-session, @types/node, SimpleBlog/node_modules}" />
+    <file url="PROJECT" libraries="{@types/ejs, @types/express, @types/express-flash, @types/express-session, @types/node, SimpleBlog/node_modules, highlight, jquery, materialize, simplemde}" />
     <includedPredefinedLibrary name="HTTP Response Handler" />
   </component>
 </project>

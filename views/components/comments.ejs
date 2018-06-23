@@ -40,12 +40,15 @@
                               <form class="col s12 m12 " method="POST" action="/comments">
                                       <!-- 输入留言内容 -->
                                       <input name="postId" value="<%= post._id %>" hidden/>
-                                        <textarea name="content" style="height: 200px; margin-bottom: 30px;"></textarea>
+                                        <label>Content</label>
+                                      <div class="form-group ">
+                                        <textarea name="content"></textarea>
+                                      </div>
                                         <!-- 提交表单的按钮，input type 为 submit -->
-                                        <button href="#" class="waves-effect waves-light blue btn right" type="submit" name="action" id="submit_btn">Submit
+                                        <button href="#" class="waves-effect waves-light blue btn right"
+                                                type="submit" name="action" id="submit_btn" style="margin-top: 30px;">Submit
                                         <i class="material-icons right">send</i>
                                     </button>
-                                </div>
                               </form>
                           </div>
                       </div>

@@ -13,7 +13,7 @@
         <div class="footer-copyright">
             <div class="container">
                 © 2018 Copyright
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                <a class="white-text text-lighten-1 right" href="https://github.com/Ubilabs-NicholasCheng/SimpleBlog">See on Github</a>
             </div>
         </div>
     </footer>
@@ -39,30 +39,47 @@
             });
 
             // 设置提示的notification 逐渐消失
-            $('#card_alert').fadeOut(3000);
+            $('#card_alert').fadeOut(4000);
 
             //设置 post-content卡片 按钮的dropdown效果
             $('.dropdown-trigger').dropdown();
             // 获取Markdown编辑区
-            var simplemde = new SimpleMDE({
-                element: $("#editor")[0],
-                indentWithTabs: false,
-                tabSize: 4,
-                status: false,
-                autosave: {
-                    enabled: false
-                },
-                spellChecker: false,
-                renderingConfig: {
-                    codeSyntaxHighlighting: true
-                }
+
+            console.log($('.form-group').length)
+
+            //判断是否存在textarea元素，若存在，则渲染为SimpleMarkdownEditor界面
+            if($('.form-group').length > 0){
+                var simplemde = new SimpleMDE({
+                    element: $("#editor")[0],
+                    indentWithTabs: false,
+                    tabSize: 4,
+                    status: false,
+                    autosave: {
+                        enabled: false
+                    },
+                    spellChecker: false,
+                    renderingConfig: {
+                        codeSyntaxHighlighting: true
+                    }
+                });
+                var testPlain = simplemde.value(),
+                    testMarkdown = simplemde.markdown(testPlain);
+            }
+        });
+        $ (function () {
+            $(".preloader-wrapper").fadeOut(2000);
+            $('.preloader-background').delay(300).fadeOut('slow');
+
+            var speed = 1000;
+            $("#toTop").click( function () {
+                $( "html, body").animate({ "scrollTop" : 0 }, speed);
             });
-            var testPlain = simplemde.value(),
-                testMarkdown = simplemde.markdown(testPlain);
-
-            var speed = 20;//自定义滚动速度
-            //回到顶部
-
+            //回到底部
+            var windowHeight = parseInt(document.body.scrollHeight);//网页正文全文高
+            console.log(windowHeight);
+            $("#toBottom").click(function () {
+                $( "html, body").animate({ "scrollTop" : windowHeight }, speed);
+            });
         });
 
         hljs.initHighlightingOnLoad();

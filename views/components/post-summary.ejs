@@ -1,0 +1,56 @@
+<!--用来存放单篇文章的摘要片段-->
+<!-- 水平卡片 -->
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card">
+                <!-- 注意路径中要包含 /, 因为预定的静态资源目录为：/public -->
+                <div class="card-content">
+                    <!-- 点击文章名后跳转到文章页面 -->
+                    <a href="/posts/<%= post._id %>" class="card-title materialize-red-text" style="margin-left:10px;"><%= post.title %></a>
+
+                    <div class="col m2" style="float:right;">
+                        <!-- 登录后才显示编辑按钮 -->
+                        <% if (user && post.author._id && user._id.toString() === post.author._id.toString()) { %>
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>
+                            <i class="material-icons right">mode_edit</i>Edit</a>
+
+                        <!-- Dropdown Structure -->
+                        <ul id='dropdown1' class='dropdown-content'>
+                            <li>
+                                <a href="/posts/<%= post._id %>/edit">edit</a>
+                            </li>
+                            <li>
+                                <a href="/posts/<%= post._id %>/remove">remove</a>
+                            </li>
+                        </ul>
+                        <% } %>
+                    </div>
+                </div>
+                <!--显示文章信息-->
+                <div class="card-action" style="margin-top: 20px;">
+                    <div class="chip black-text">
+                        <img src="/img/<%= post.author.avatar %>" alt="Contact Person" class="circle" >
+                        <%= post.author.name%>
+                    </div>
+                    <div class="chip black-text">
+                        <%= post.created_at %>
+                        <i class="close material-icons green-text">check</i>
+                    </div>
+                    <div class="chip black-text">
+                        browse( <%= post.pv || 0 %> )
+                        <i class="close material-icons green-text">check</i>
+                    </div>
+                    <div class="chip black-text">
+                        comment( <%= post.commentsCount || 0 %> )
+                        <i class="close material-icons green-text">check</i>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

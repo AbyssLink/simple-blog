@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><%= blog.title %></title>
+    <link rel="icon" type="image/x-icon" href="/img/webhome.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -15,36 +16,64 @@
     <!--markdown添加github css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
     <!--添加代码高亮，highlight.js 会自动寻找 < pre><code></code></pre > 代码块并完成代码高亮！-->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <!-- jquery 必须先加载 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <!--引入markdown显示-->
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            var speed = 20;
-            $("#toTop").click( function () {
-                $( "html, body").animate({ "scrollTop" : 0 }, speed);
-            });
-            //回到底部
-            var windowHeight = parseInt($("body").css("height" ));//整个页面的高度
-            console.log(windowHeight);
-            $("#toBottom").click(function () {
-                $( "html, body").animate({ "scrollTop" : windowHeight }, speed);
-            });
-        })
-    </script>
 </head>
 
 <body>
-
 <%- include('./components/nav') %>
 <%- include('./components/nav-setting') %>
 <%- include('./components/notification') %>
+<!--预加载器-->
+<div class="preloader-background">
+    <div class="preloader-wrapper big active" style="width: 100px; height: 100px;">
+        <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
 
+        <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-yellow">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
     
 

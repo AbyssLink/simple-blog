@@ -1,13 +1,24 @@
 /* ---------- 全局样式 ---------- */
 
-body {
+.body {
     width: 100%;
     height: 100%;
     margin: 0 auto;
     padding-top: 0px;
 }
 
+.wrap {
+    min-height: 100%;
+    height: auto !important;
+}
+.main {
+    padding-bottom: 80px; //页脚高度
+}
 
+.footer {
+    height: 60px;  //页脚高度
+    margin-top: 60px;  //一个页脚高度的负外边距
+}
 /* nav-setting */
 
 #sidenav_button {
@@ -25,7 +36,7 @@ body {
 #mode_edit{
     position: fixed;
     float: right;
-    margin-bottom: 100px;
+    margin-bottom: 85px;
 }
 
 
@@ -59,6 +70,22 @@ body {
 
 .dropdown-trigger {
     float: right;
+}
+
+/*预加载器*/
+.preloader-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+    /*background-color: rgba(236, 238, 231, 0.44);*/
+
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 
