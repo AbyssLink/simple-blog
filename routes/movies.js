@@ -42,10 +42,14 @@ router.post('/create', function(req, res, next) {
         .then(function() {
             req.flash('success', 'create movie successfully!')
             // 创建成功后跳转到上一页
-            res.render('createMovie')
+            res.redirect('/movies')
         })
         .catch(next)
 
+})
+
+router.get('/create', checkLogin, function(req, res, next) {
+    res.render('createMovie')
 })
 
 // 删除电影页

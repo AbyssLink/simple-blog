@@ -1,7 +1,9 @@
 <%- include('header') %>
 
 <% movies.forEach(function (movie) { %>
-    <%- include('components/post-summary', { movie: movie }) %>
+    <ul class="collection">
+        <%- include('components/movie-content', { movie: movie }) %>
+    </ul>
 <% }) %>
 
 <%- include('footer') %>
