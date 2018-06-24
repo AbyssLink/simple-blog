@@ -125,7 +125,7 @@ module.exports = {
     // 通过用户 id 和文章 id 删除一篇文章
     delPostById: function delPostById(postId, author) {
         return Post.deleteOne({
-                author: author,
+                // author: author,
                 _id: postId
             })
             .exec()

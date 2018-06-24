@@ -1,0 +1,7 @@
+<%- include('header') %>
+
+<% movies.forEach(function (movie) { %>
+    <%- include('components/post-summary', { movie: movie }) %>
+<% }) %>
+
+<%- include('footer') %>
