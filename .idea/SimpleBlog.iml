@@ -17,5 +17,6 @@
     <orderEntry type="library" name="highlight" level="application" />
     <orderEntry type="library" name="simplemde" level="application" />
     <orderEntry type="library" name="materialize" level="application" />
+    <orderEntry type="library" name="prefixfree" level="application" />
   </component>
 </module>
