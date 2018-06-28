@@ -20,26 +20,26 @@ SimpleBlog: https://github.com/Ubilabs-NicholasCheng/SimpleBlog
 
 - **主页：**
 
-![Snipaste_2018-06-27_02-12-15](E:\OneDrive - business\ZUCC课程\JS-BigWork\asserts\Snipaste_2018-06-27_02-12-15.png)
+![Snipaste_2018-06-27_02-12-15](https://github.com/Ubilabs-NicholasCheng/SimpleBlog/raw/master/asserts/Snipaste_2018-06-27_02-12-15.png)
 
   
 
 - **特定文章页：**
 
-![Snipaste_2018-06-27_02-12-47](E:\OneDrive - business\ZUCC课程\JS-BigWork\asserts\Snipaste_2018-06-27_02-12-47.png)
+![Snipaste_2018-06-27_02-12-47](https://github.com/Ubilabs-NicholasCheng/SimpleBlog/raw/master/asserts/Snipaste_2018-06-27_02-12-47.png)
 
 
 
 - **发布文章页：**
 
-![Snipaste_2018-06-27_02-13-17](E:\OneDrive - business\ZUCC课程\JS-BigWork\asserts\Snipaste_2018-06-27_02-13-17.png)
+![Snipaste_2018-06-27_02-13-17](https://github.com/Ubilabs-NicholasCheng/SimpleBlog/raw/master/asserts/Snipaste_2018-06-27_02-13-17.png)
 
 
 
 
 - **电影页：**
 
-![Snipaste_2018-06-27_02-13-34](E:\OneDrive - business\ZUCC课程\JS-BigWork\asserts\Snipaste_2018-06-27_02-13-34.png)
+![Snipaste_2018-06-27_02-13-34](https://github.com/Ubilabs-NicholasCheng/SimpleBlog/raw/master/asserts/Snipaste_2018-06-27_02-13-34.png)
 
 
 
